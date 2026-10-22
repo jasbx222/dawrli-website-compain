@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0F1E3D">
+<title>دوّرلي · الشهر الثاني</title>
+<style>@font-face{font-family:'Plex';src:url(assets/fonts/IBMPlexSansArabic-Regular.ttf) format('truetype');font-weight:400;font-display:swap}@font-face{font-family:'Plex';src:url(assets/fonts/IBMPlexSansArabic-SemiBold.ttf) format('truetype');font-weight:600;font-display:swap}@font-face{font-family:'Plex';src:url(assets/fonts/IBMPlexSansArabic-Bold.ttf) format('truetype');font-weight:700;font-display:swap}@font-face{font-family:'Marhey';src:url(assets/fonts/Marhey.ttf) format('truetype');font-weight:700;font-display:swap}
+:root{--navy:#0F1E3D;--blue:#1F4E9C;--lblue:#3B6FE0;--gold:#E8B02E;--sgold:#F5C95A;--teal:#14B8A6;--cream:#FAF7F0;--ink:#1b2335;--muted:#6b7385;--line:#e7e1d3}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Plex,'Segoe UI',Tahoma,sans-serif;line-height:1.7;font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 14px 80px}
+.hero{background:linear-gradient(160deg,var(--navy),#16306a 70%,var(--blue));color:#fff;padding:34px 18px 28px;text-align:center;border-bottom:4px solid var(--gold)}
+.hero h1{font-family:Marhey,Plex,sans-serif;font-size:clamp(30px,7vw,52px);margin:0;color:var(--gold);line-height:1.3}
+.hero .idea{font-size:clamp(17px,4.2vw,22px);font-weight:600;margin:6px 0 10px}
+.hero .sub{opacity:.85;font-size:14px;max-width:760px;margin:0 auto}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin:18px 0;box-shadow:0 2px 10px rgba(15,30,61,.05)}
+h2{font-size:22px;margin:0 0 12px;color:var(--navy)}
+h3{font-size:17px;margin:18px 0 10px;color:var(--navy)}
+.weekh{margin:30px 4px 6px;padding-inline-start:12px;border-inline-start:5px solid var(--gold)}
+.muted{color:var(--muted);font-size:14px}
+.prow{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.pp{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px;width:170px}
+.pp img.lz{width:150px;border-radius:50%;border:3px solid var(--gold)}
+.fields{flex:1;min-width:250px;display:flex;flex-direction:column;gap:10px}
+.field{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;background:var(--cream);border-radius:12px;padding:10px 12px}
+.flabel{grid-column:1/-1;font-size:13px;color:var(--muted);font-weight:600}
+.val{font-weight:600;word-break:break-word;margin:0;font-family:inherit;white-space:pre-wrap;font-size:15px}
+.tips{margin:12px 0 0;padding-inline-start:20px;font-size:14px;color:#3a4256}
+.hls{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.hls.three{grid-template-columns:repeat(3,minmax(0,180px))}
+.hl{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.hl img{width:100%;border-radius:12px}
+.hl figcaption{font-size:13px;font-weight:600}
+img.lz{display:block;width:100%;height:auto;background:linear-gradient(110deg,#eee8da 30%,#f6f1e6 50%,#eee8da 70%);background-size:200% 100%;animation:sh 1.4s linear infinite}
+img.lz.ok{animation:none;background:none}
+@keyframes sh{to{background-position:-200% 0}}
+.btn{font-family:inherit;font-size:14px;font-weight:700;border:0;border-radius:999px;padding:8px 16px;cursor:pointer;background:var(--navy);color:#fff;white-space:nowrap;touch-action:manipulation}
+.btn:active{transform:scale(.97)}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.copy{background:var(--blue)}
+.btn.ok{background:var(--teal)!important;color:#fff!important}
+.row-end{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start;margin-top:10px}
+.row-end:empty{display:none}
+.filters{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 4px;background:rgba(250,247,240,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin:0 -14px;padding-inline:14px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{font-family:inherit;font-size:14px;font-weight:600;border:1.5px solid var(--navy);background:#fff;color:var(--navy);border-radius:999px;padding:5px 14px;white-space:nowrap;cursor:pointer}
+.chip.on{background:var(--navy);color:var(--gold)}
+.progress{margin-inline-start:auto;align-self:center;font-weight:700;color:var(--navy);white-space:nowrap;font-size:14px}
+.dhead{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.dnum{background:var(--navy);color:var(--gold);border-radius:14px;min-width:62px;height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.dnum span{font-size:12px;color:#fff}
+.dnum b{font-family:Marhey,Plex,sans-serif;font-size:26px}
+.dmeta{flex:1;min-width:0}
+.fmt{font-weight:700;font-size:16px;color:var(--navy)}
+.time{font-size:14px;color:#3a4256}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.badge{font-size:12px;font-weight:600;background:#eef2fb;color:var(--blue);border-radius:999px;padding:1px 9px}
+.badge.pin{background:#fdf3d9;color:#8a6300}
+.done{display:flex;flex-direction:column;align-items:center;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted)}
+.done input{width:26px;height:26px;accent-color:var(--teal);cursor:pointer;margin:0 0 2px}
+.day.posted{border-color:var(--teal);background:#f3fcfb}
+.day.posted .done{color:var(--teal)}
+.slides{display:grid;grid-template-columns:minmax(0,440px);justify-content:center;gap:12px}
+.slides.multi{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;justify-content:flex-start;padding-bottom:6px}
+.slides.multi .slide{flex:0 0 min(78%,330px);scroll-snap-align:start}
+.slide{margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.slide .num,.tile .num{position:absolute;top:8px;inset-inline-start:8px;background:rgba(15,30,61,.85);color:var(--gold);font-weight:700;font-size:13px;border-radius:999px;padding:1px 10px;direction:ltr}
+.sbar{display:flex;justify-content:center;align-items:center;gap:10px;padding:8px}
+.snum{font-weight:700;font-size:13px;color:var(--navy);background:#fdf3d9;border-radius:999px;padding:2px 10px}
+.mcard{display:flex;gap:12px;border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+.mstep{background:var(--gold);color:var(--navy);border-radius:14px;min-width:56px;height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.mstep b{font-family:Marhey,Plex,sans-serif;font-size:24px}.mstep span{font-size:10px;font-weight:700}
+.mbody{flex:1;min-width:0}.mrow{display:flex;gap:12px;align-items:flex-start;margin-top:6px}
+.mthumb{flex:0 0 200px}.mcap{flex:1;min-width:0}.mcap .capbox{margin-top:0}
+@media (max-width:600px){.mcard{flex-direction:column}.mstep{flex-direction:row;gap:8px;height:auto;padding:4px 12px;align-self:flex-start}.mrow{flex-direction:column}.mthumb{flex:none;width:100%;max-width:330px;align-self:center}}
+.dots{display:none;justify-content:center;gap:6px;margin-top:4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:#d6cfbf}
+.dots i.on{background:var(--gold)}
+.capbox{background:var(--cream);border:1px dashed #d9cfb5;border-radius:14px;padding:12px 14px;margin-top:12px}
+.cap,.tags,.mtext{margin:0;white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:16px}
+.tags{margin-top:10px;color:var(--blue);font-size:14px;direction:rtl}
+.note{margin-top:10px;font-size:14px;background:#fff7e3;border-inline-start:4px solid var(--gold);padding:8px 12px;border-radius:8px}
+.mosaic{display:grid;gap:3px;max-width:600px;margin:0 auto}
+.tile{margin:0;position:relative}
+.mextra{margin:14px auto 0;max-width:420px;text-align:center}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;transition:transform .25s;z-index:20;font-size:14px}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.hidden{display:none!important}
+@media (min-width:860px){
+  .slides.multi{overflow-x:visible;flex-wrap:wrap;justify-content:center}
+  .slides.multi .slide{flex:0 0 calc((100% - 24px)/3)}
+  .slides.multi.n2 .slide{flex-basis:calc((100% - 12px)/2)}
+}
+@media (max-width:859px){.dots{display:flex}}
+@media (max-width:600px){
+  .hls{grid-template-columns:repeat(3,1fr)}
+  .hls.three{grid-template-columns:repeat(3,1fr)}
+  .pp{width:100%}
+  .card{padding:14px 12px;border-radius:16px}
+  .dnum{min-width:54px;height:54px}
+  .btn{padding:8px 14px}
+}
+
+.hero .badge2{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;border-radius:999px;padding:2px 14px;font-size:14px;margin-bottom:8px}
+.concept{font-size:14px;color:#3a4256;margin-top:2px}
+a.btn{text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.slide img{display:block;width:100%;height:auto;aspect-ratio:4/5;background:#eee8da}
+</style></head>
+<body>
+<header class="hero"><span class="badge2">الشهر الثاني</span><h1>دوّرلي</h1>
+  <div class="idea">التطبيق نزل.. هسه نعلّم الناس شلون يستخدمونه ونجيب البيجات</div>
+  <div class="sub">30 يوم انستغرام · <bdi dir="ltr">@dawwerli.iq</bdi> · كل يوم بيه الصور والوقت والكابشن. انسخ الكابشن، نزّل الصور، وعلّم «تم النشر».</div>
+  <div class="sub" style="margin-top:6px">انشر بمضاعفات 3 حتى الگريد يبقى مرتب.</div></header>
+<main class="wrap">
+<nav class="filters" id="filters"><button class="chip on" data-week="all">الكل</button><button class="chip" data-week="1">الاسبوع 1</button><button class="chip" data-week="2">الاسبوع 2</button><button class="chip" data-week="3">الاسبوع 3</button><button class="chip" data-week="4">الاسبوع 4</button><button class="chip" data-week="todo">اللي ما انتشر</button><span class="progress" id="progress"></span></nav><h2 class="weekh" data-week="1">الاسبوع 1 — البداية: شلون تستخدمه صح</h2>
+<article class="card day" id="day-01" data-week="1" data-day="1">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>1</b></div>
+    <div class="dmeta"><div class="fmt">منشور البداية (اول طلب)</div><div class="concept">نزلت التطبيق؟ اكتب اول طلب بسطر واحد</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="1"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-01.png" alt="day-01" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-01.png" download="dawwerli-m2-day-01.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">نزلت دورلي؟ خوش، هسه اكتب اول طلب
+مو لازم يكون شي كبير، بس اكتب شتريد بسطر
+حدد محافظتك والحالة واعلى سعر عندك
+وخلي العروض تجيك وانت اختار
+الرابط بالبايو 👆</pre><pre class="tags">#دورلي #تسوق_اونلاين #العراق #بغداد #البصرة #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="نزلت دورلي؟ خوش، هسه اكتب اول طلب
+مو لازم يكون شي كبير، بس اكتب شتريد بسطر
+حدد محافظتك والحالة واعلى سعر عندك
+وخلي العروض تجيك وانت اختار
+الرابط بالبايو 👆
+
+#دورلي #تسوق_اونلاين #العراق #بغداد #البصرة #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_اونلاين #العراق #بغداد #البصرة #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-02" data-week="1" data-day="2">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>2</b></div>
+    <div class="dmeta"><div class="fmt">كاروسيل نصايح (شلون تكتب طلب واضح)</div><div class="concept">4 امثلة قبل وبعد لكتابة طلب واضح</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"><span class="badge">كاروسيل 5 سلايد</span></div></div>
+    <label class="done"><input type="checkbox" data-day="2"><span>تم النشر</span></label>
+  </header>
+  <div class="slides multi"><figure class="slide"><img src="assets/day-02-1.png" alt="day-02-1" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 1/5</span><a class="btn dl" href="assets/day-02-1.png" download="dawwerli-m2-day-02-1.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-02-2.png" alt="day-02-2" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 2/5</span><a class="btn dl" href="assets/day-02-2.png" download="dawwerli-m2-day-02-2.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-02-3.png" alt="day-02-3" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 3/5</span><a class="btn dl" href="assets/day-02-3.png" download="dawwerli-m2-day-02-3.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-02-4.png" alt="day-02-4" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 4/5</span><a class="btn dl" href="assets/day-02-4.png" download="dawwerli-m2-day-02-4.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-02-5.png" alt="day-02-5" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 5/5</span><a class="btn dl" href="assets/day-02-5.png" download="dawwerli-m2-day-02-5.png">⬇ تنزيل</a></div></figure></div>
+  <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="row-end"><button class="btn gold dlall">⬇ تنزيل كل الصور (5)</button></div>
+  <div class="capbox"><pre class="cap">اكو طلب الصفحات تفهمه من اول نظرة واكو طلب يحيرهم
+الفرق كله بالتفاصيل
+اكتب الشي بالضبط، الموديل او القياس او اللون
+حدد محافظتك
+وضح الحالة
+وحط سعر واقعي مو حلم 😅
+اسحب وشوف الامثلة واحفظ البوست</pre><pre class="tags">#دورلي #نصايح_تسوق #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="اكو طلب الصفحات تفهمه من اول نظرة واكو طلب يحيرهم
+الفرق كله بالتفاصيل
+اكتب الشي بالضبط، الموديل او القياس او اللون
+حدد محافظتك
+وضح الحالة
+وحط سعر واقعي مو حلم 😅
+اسحب وشوف الامثلة واحفظ البوست
+
+#دورلي #نصايح_تسوق #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #نصايح_تسوق #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-03" data-week="1" data-day="3">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>3</b></div>
+    <div class="dmeta"><div class="fmt">للبيجات (بطل ترد على بكم)</div><div class="concept">صاحب البيج يبطل يجاوب «بكم؟» ويرسل عرض واحد بسعر ثابت</div><div class="time">🕘 ١١:٠٠ الصبح</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="3"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-03.png" alt="day-03" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-03.png" download="dawwerli-m2-day-03.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">اذا عندك بيج اكيد تعرف هالشعور
+نفس السؤال بكم؟ ميت مرة باليوم
+بدورلي الزبون يكتب شيريد ومنين والحالة من البداية
+وانت ترسل عرض واحد بسعر ثابت وخلصت
+وثق بيجك من التطبيق، الرابط بالبايو</pre><pre class="tags">#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="اذا عندك بيج اكيد تعرف هالشعور
+نفس السؤال بكم؟ ميت مرة باليوم
+بدورلي الزبون يكتب شيريد ومنين والحالة من البداية
+وانت ترسل عرض واحد بسعر ثابت وخلصت
+وثق بيجك من التطبيق، الرابط بالبايو
+
+#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-04" data-week="1" data-day="4">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>4</b></div>
+    <div class="dmeta"><div class="fmt">فئة: ملابس</div><div class="concept">القياس واللون والموديل تنكتب بالطلب نفسه</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="4"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-04.png" alt="day-04" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-04.png" download="dawwerli-m2-day-04.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">تعبت من سالفة القياس ما ضبط؟
+بدورلي تكتب القياس واللون والموديل بالطلب نفسه
+والبيجات ترسلك عروض على اللي طلبته بالضبط
+وقبل لا تدفع تشوف القطعة وتتاكد
+شنو اخر شي اشتريته وطلع قياسه غلط؟ 👇</pre><pre class="tags">#دورلي #ملابس #ملابس_نسائية #ملابس_رجالية #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="تعبت من سالفة القياس ما ضبط؟
+بدورلي تكتب القياس واللون والموديل بالطلب نفسه
+والبيجات ترسلك عروض على اللي طلبته بالضبط
+وقبل لا تدفع تشوف القطعة وتتاكد
+شنو اخر شي اشتريته وطلع قياسه غلط؟ 👇
+
+#دورلي #ملابس #ملابس_نسائية #ملابس_رجالية #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #ملابس #ملابس_نسائية #ملابس_رجالية #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-05" data-week="1" data-day="5">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>5</b></div>
+    <div class="dmeta"><div class="fmt">ضحك (مراحل الشراء اونلاين)</div><div class="concept">تحفظ البوست، تكول باچر، تلكاه انباع</div><div class="time">🕘 ١٠:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="5"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-05.png" alt="day-05" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-05.png" download="dawwerli-m2-day-05.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">مراحل الشراء اونلاين عدنا 😂
+تشوف غرض يجنن وتحفظ البوست
+تكول باجر اطلبه
+باجر ترجع تلكاه انباع
+وترجع تدور من الصفر
+بدورلي اكتب شتريد مرة وحدة وخلي العروض تجيك
+سوي تاك للي دايما تفوته الفرصة</pre><pre class="tags">#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="مراحل الشراء اونلاين عدنا 😂
+تشوف غرض يجنن وتحفظ البوست
+تكول باجر اطلبه
+باجر ترجع تلكاه انباع
+وترجع تدور من الصفر
+بدورلي اكتب شتريد مرة وحدة وخلي العروض تجيك
+سوي تاك للي دايما تفوته الفرصة
+
+#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-06" data-week="1" data-day="6">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>6</b></div>
+    <div class="dmeta"><div class="fmt">تفاعل (هذا لو هذا)</div><div class="concept">توصيل لباب البيت لو تستلم بنفسك؟</div><div class="time">🕘 ٨:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="6"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-06.png" alt="day-06" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-06.png" download="dawwerli-m2-day-06.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">سؤال سريع
+توصيل لباب البيت لو تروح تستلمه بنفسك؟
+اكتب 1 لو 2 بالتعليقات
+ونشوف منو اكثر 👀</pre><pre class="tags">#دورلي #تسوق_اونلاين #توصيل #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="سؤال سريع
+توصيل لباب البيت لو تروح تستلمه بنفسك؟
+اكتب 1 لو 2 بالتعليقات
+ونشوف منو اكثر 👀
+
+#دورلي #تسوق_اونلاين #توصيل #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_اونلاين #توصيل #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-07" data-week="1" data-day="7">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>7</b></div>
+    <div class="dmeta"><div class="fmt">ميزة: تتبع الطلب</div><div class="concept">من «طلباتي» تتابع حالة طلبك خطوة بخطوة</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="7"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-07.png" alt="day-07" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-07.png" download="dawwerli-m2-day-07.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">طلبت من متجر بيج وما تعرف طلبك وين؟
+من طلباتي تشوف حالته خطوة بخطوة
+جديد، مقبول، بالتوصيل، مستلم
+وكل خطوة بوقتها
+واذا بعده جديد وغيرت رايك تكدر تلغيه</pre><pre class="tags">#دورلي #تتبع_الطلب #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** ميزة «طلباتي» والتتبع من تحديث المتجر. تأكد انها نازلة بالنسخة اللي بالمتجر قبل لا تنشر.</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="طلبت من متجر بيج وما تعرف طلبك وين؟
+من طلباتي تشوف حالته خطوة بخطوة
+جديد، مقبول، بالتوصيل، مستلم
+وكل خطوة بوقتها
+واذا بعده جديد وغيرت رايك تكدر تلغيه
+
+#دورلي #تتبع_الطلب #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** ميزة «طلباتي» والتتبع من تحديث المتجر. تأكد انها نازلة بالنسخة اللي بالمتجر قبل لا تنشر.">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تتبع_الطلب #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** ميزة «طلباتي» والتتبع من تحديث المتجر. تأكد انها نازلة بالنسخة اللي بالمتجر قبل لا تنشر.">نسخ الهاشتاگات</button></div>
+  <div class="note"><b>تأكد قبل النشر:</b> ميزة «طلباتي» والتتبع من تحديث المتجر. تأكد انها نازلة بالنسخة اللي بالمتجر قبل لا تنشر.</div>
+</article><h2 class="weekh" data-week="2">الاسبوع 2 — الثقة والمقارنة</h2>
+<article class="card day" id="day-08" data-week="2" data-day="8">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>8</b></div>
+    <div class="dmeta"><div class="fmt">فئة: موبايلات</div><div class="concept">لا تكتب بس «موبايل»: الموديل والذاكرة والحالة والمحافظة</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="8"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-08.png" alt="day-08" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-08.png" download="dawwerli-m2-day-08.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">تريد موبايل؟ لا تكتب بس اريد موبايل
+اكتب الموديل والذاكرة واللون، جديد لو مستعمل، ومحافظتك
+والبيجات ترسلك عروضها بسعر ثابت
+وقبل لا تدفع افحصه زين، البطارية والشاشة وكلشي</pre><pre class="tags">#دورلي #موبايلات #موبايلات_مستعملة #موبايلات_العراق #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="تريد موبايل؟ لا تكتب بس اريد موبايل
+اكتب الموديل والذاكرة واللون، جديد لو مستعمل، ومحافظتك
+والبيجات ترسلك عروضها بسعر ثابت
+وقبل لا تدفع افحصه زين، البطارية والشاشة وكلشي
+
+#دورلي #موبايلات #موبايلات_مستعملة #موبايلات_العراق #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #موبايلات #موبايلات_مستعملة #موبايلات_العراق #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-09" data-week="2" data-day="9">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>9</b></div>
+    <div class="dmeta"><div class="fmt">كاروسيل نصايح (شتفحص قبل لا تدفع)</div><div class="concept">قائمة فحص للموبايل والملابس والاجهزة</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"><span class="badge">كاروسيل 4 سلايد</span></div></div>
+    <label class="done"><input type="checkbox" data-day="9"><span>تم النشر</span></label>
+  </header>
+  <div class="slides multi"><figure class="slide"><img src="assets/day-09-1.png" alt="day-09-1" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 1/4</span><a class="btn dl" href="assets/day-09-1.png" download="dawwerli-m2-day-09-1.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-09-2.png" alt="day-09-2" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 2/4</span><a class="btn dl" href="assets/day-09-2.png" download="dawwerli-m2-day-09-2.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-09-3.png" alt="day-09-3" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 3/4</span><a class="btn dl" href="assets/day-09-3.png" download="dawwerli-m2-day-09-3.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-09-4.png" alt="day-09-4" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 4/4</span><a class="btn dl" href="assets/day-09-4.png" download="dawwerli-m2-day-09-4.png">⬇ تنزيل</a></div></figure></div>
+  <div class="dots"><i></i><i></i><i></i><i></i></div>
+  <div class="row-end"><button class="btn gold dlall">⬇ تنزيل كل الصور (4)</button></div>
+  <div class="capbox"><pre class="cap">قبل لا تدفع افحص 👁
+احفظ هالبوست وارجعله وقت الاستلام
+الموبايل: البطارية والشاشة والكاميرا ورقم الايمي يطابق الكارتونة
+الملابس: القياس والخياطة واللون مثل الصورة
+الاجهزة: شغلها قدامك وشوف الملحقات والضمان اذا اكو
+بدورلي تكدر تفحص قبل لا تدفع، فاستفاد منها</pre><pre class="tags">#دورلي #نصايح_تسوق #تسوق_امن #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="قبل لا تدفع افحص 👁
+احفظ هالبوست وارجعله وقت الاستلام
+الموبايل: البطارية والشاشة والكاميرا ورقم الايمي يطابق الكارتونة
+الملابس: القياس والخياطة واللون مثل الصورة
+الاجهزة: شغلها قدامك وشوف الملحقات والضمان اذا اكو
+بدورلي تكدر تفحص قبل لا تدفع، فاستفاد منها
+
+#دورلي #نصايح_تسوق #تسوق_امن #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #نصايح_تسوق #تسوق_امن #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-10" data-week="2" data-day="10">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>10</b></div>
+    <div class="dmeta"><div class="fmt">للبيجات: متجر البيج</div><div class="concept">المنتجات الثابتة تنحط بالمتجر: الزبون يطلب وانت تقبل وتتابع</div><div class="time">🕘 ١٢:٠٠ الظهر</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="10"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-10.png" alt="day-10" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-10.png" download="dawwerli-m2-day-10.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">عندك منتجات ثابتة تبيعها كل يوم؟
+حطها بمتجر بيجك داخل دورلي
+الزبون يتصفح ويحط بالسلة ويطلب
+وانت تشوف الطلب وتقبله وتتابعه لحد ما يستلمه
+بدون ما تعيد نفس الكلام لكل واحد</pre><pre class="tags">#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #متجر_الكتروني #العراق
+**⚠️ تأكد قبل النشر:** متجر الصفحة وحالات الطلب من تحديث المتجر. تأكد انها نازلة للصفحات قبل لا تنشر.</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="عندك منتجات ثابتة تبيعها كل يوم؟
+حطها بمتجر بيجك داخل دورلي
+الزبون يتصفح ويحط بالسلة ويطلب
+وانت تشوف الطلب وتقبله وتتابعه لحد ما يستلمه
+بدون ما تعيد نفس الكلام لكل واحد
+
+#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #متجر_الكتروني #العراق
+**⚠️ تأكد قبل النشر:** متجر الصفحة وحالات الطلب من تحديث المتجر. تأكد انها نازلة للصفحات قبل لا تنشر.">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #متجر_الكتروني #العراق
+**⚠️ تأكد قبل النشر:** متجر الصفحة وحالات الطلب من تحديث المتجر. تأكد انها نازلة للصفحات قبل لا تنشر.">نسخ الهاشتاگات</button></div>
+  <div class="note"><b>تأكد قبل النشر:</b> متجر الصفحة وحالات الطلب من تحديث المتجر. تأكد انها نازلة للصفحات قبل لا تنشر.</div>
+</article>
+<article class="card day" id="day-11" data-week="2" data-day="11">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>11</b></div>
+    <div class="dmeta"><div class="fmt">ضحك (المتوقع والواقع)</div><div class="concept">صورة الاعلان ضد الغرض اللي وصل</div><div class="time">🕘 ١٠:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="11"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-11.png" alt="day-11" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-11.png" download="dawwerli-m2-day-11.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">الصورة بالاعلان شي
+واللي يوصلك شي ثاني تماما 🙃
+كلنا صارت ويانا مرة على الاقل
+علمود هيج بدورلي تشوف الغرض وتفحصه قبل لا تدفع
+احجيلنا اغرب شي وصلك 👇</pre><pre class="tags">#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="الصورة بالاعلان شي
+واللي يوصلك شي ثاني تماما 🙃
+كلنا صارت ويانا مرة على الاقل
+علمود هيج بدورلي تشوف الغرض وتفحصه قبل لا تدفع
+احجيلنا اغرب شي وصلك 👇
+
+#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-12" data-week="2" data-day="12">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>12</b></div>
+    <div class="dmeta"><div class="fmt">ميزة: اطلب مرة ثانية وقيّم</div><div class="concept">زر «اطلب مرة ثانية» و«قيّم» من طلباتي</div><div class="time">🕘 ٨:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="12"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-12.png" alt="day-12" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-12.png" download="dawwerli-m2-day-12.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">عجبتك البيج وعجبك الغرض؟
+لا تدور عليها من جديد
+من طلباتي اضغط اطلب مرة ثانية وخلصت
+وبعد ما يوصلك قيم البيج حتى غيرك يستفاد</pre><pre class="tags">#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** زر «اطلب مرة ثانية» و«قيّم» من تحديث المتجر. تأكد انه نازل قبل لا تنشر.</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="عجبتك البيج وعجبك الغرض؟
+لا تدور عليها من جديد
+من طلباتي اضغط اطلب مرة ثانية وخلصت
+وبعد ما يوصلك قيم البيج حتى غيرك يستفاد
+
+#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** زر «اطلب مرة ثانية» و«قيّم» من تحديث المتجر. تأكد انه نازل قبل لا تنشر.">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** زر «اطلب مرة ثانية» و«قيّم» من تحديث المتجر. تأكد انه نازل قبل لا تنشر.">نسخ الهاشتاگات</button></div>
+  <div class="note"><b>تأكد قبل النشر:</b> زر «اطلب مرة ثانية» و«قيّم» من تحديث المتجر. تأكد انه نازل قبل لا تنشر.</div>
+</article>
+<article class="card day" id="day-13" data-week="2" data-day="13">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>13</b></div>
+    <div class="dmeta"><div class="fmt">تفاعل (كمّل الجملة)</div><div class="concept">اكثر شي يقهرني بالشراء اونلاين هو..</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="13"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-13.png" alt="day-13" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-13.png" download="dawwerli-m2-day-13.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">كمل الجملة 👇
+اكثر شي يقهرني بالشراء اونلاين هو ......
+اكتبها بالتعليقات بصراحة، نقرا كلشي</pre><pre class="tags">#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="كمل الجملة 👇
+اكثر شي يقهرني بالشراء اونلاين هو ......
+اكتبها بالتعليقات بصراحة، نقرا كلشي
+
+#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-14" data-week="2" data-day="14">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>14</b></div>
+    <div class="dmeta"><div class="fmt">كاروسيل نصايح (شلون تختار بين عرضين)</div><div class="concept">4 اشياء تشوفها قبل لا تختار العرض</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"><span class="badge">كاروسيل 5 سلايد</span></div></div>
+    <label class="done"><input type="checkbox" data-day="14"><span>تم النشر</span></label>
+  </header>
+  <div class="slides multi"><figure class="slide"><img src="assets/day-14-1.png" alt="day-14-1" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 1/5</span><a class="btn dl" href="assets/day-14-1.png" download="dawwerli-m2-day-14-1.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-14-2.png" alt="day-14-2" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 2/5</span><a class="btn dl" href="assets/day-14-2.png" download="dawwerli-m2-day-14-2.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-14-3.png" alt="day-14-3" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 3/5</span><a class="btn dl" href="assets/day-14-3.png" download="dawwerli-m2-day-14-3.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-14-4.png" alt="day-14-4" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 4/5</span><a class="btn dl" href="assets/day-14-4.png" download="dawwerli-m2-day-14-4.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-14-5.png" alt="day-14-5" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 5/5</span><a class="btn dl" href="assets/day-14-5.png" download="dawwerli-m2-day-14-5.png">⬇ تنزيل</a></div></figure></div>
+  <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="row-end"><button class="btn gold dlall">⬇ تنزيل كل الصور (5)</button></div>
+  <div class="capbox"><pre class="cap">اجاك اكثر من عرض وما تعرف اي واحد تاخذ؟
+شوف هالاشياء قبل لا تختار
+شارة التوثيق
+تقييم البيج، لان التقييم بس من ناس استلموا فعلا
+الحالة والتفاصيل اذا مثل ما طلبت
+والبيج اذا بمحافظتك
+والسعر ثابت فقارن براحتك 🔖</pre><pre class="tags">#دورلي #نصايح_تسوق #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="اجاك اكثر من عرض وما تعرف اي واحد تاخذ؟
+شوف هالاشياء قبل لا تختار
+شارة التوثيق
+تقييم البيج، لان التقييم بس من ناس استلموا فعلا
+الحالة والتفاصيل اذا مثل ما طلبت
+والبيج اذا بمحافظتك
+والسعر ثابت فقارن براحتك 🔖
+
+#دورلي #نصايح_تسوق #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #نصايح_تسوق #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article><h2 class="weekh" data-week="3">الاسبوع 3 — الفئات والمحافظات</h2>
+<article class="card day" id="day-15" data-week="3" data-day="15">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>15</b></div>
+    <div class="dmeta"><div class="fmt">فئة: بيت واثاث</div><div class="concept">البيت ناقصه شي؟ اثاث واجهزة ومطبخ وديكور</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="15"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-15.png" alt="day-15" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-15.png" download="dawwerli-m2-day-15.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">البيت ناقصه شي؟
+مكنسة، طباخ، ثلاجة، لو طقم قنفات
+اكتب شتريد ومحافظتك وجديد لو مستعمل
+والبيجات ترسلك عروضها وانت قارن براحتك
+وقبل لا تدفع شغله وتاكد</pre><pre class="tags">#دورلي #اغراض_بيت #اثاث #اجهزة_منزلية #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="البيت ناقصه شي؟
+مكنسة، طباخ، ثلاجة، لو طقم قنفات
+اكتب شتريد ومحافظتك وجديد لو مستعمل
+والبيجات ترسلك عروضها وانت قارن براحتك
+وقبل لا تدفع شغله وتاكد
+
+#دورلي #اغراض_بيت #اثاث #اجهزة_منزلية #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #اغراض_بيت #اثاث #اجهزة_منزلية #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-16" data-week="3" data-day="16">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>16</b></div>
+    <div class="dmeta"><div class="fmt">للبيجات: التوثيق</div><div class="concept">شارة التوثيق تبين يم اسم بيجك بكل عرض</div><div class="time">🕘 ١١:٠٠ الصبح</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="16"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-16.png" alt="day-16" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-16.png" download="dawwerli-m2-day-16.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">الزبون اليوم يدور على بيج يكدر يثق بيها
+شارة التوثيق بدورلي تبين يم اسم بيجك بكل عرض ترسله
+التوثيق من التطبيق والمراجعة يدوية
+صاحب بيج؟ وثق بيجك وابدي استقبل طلبات
+الرابط بالبايو</pre><pre class="tags">#دورلي #بيجات_عراقية #صفحات_عراقية #صفحات_موثقة #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="الزبون اليوم يدور على بيج يكدر يثق بيها
+شارة التوثيق بدورلي تبين يم اسم بيجك بكل عرض ترسله
+التوثيق من التطبيق والمراجعة يدوية
+صاحب بيج؟ وثق بيجك وابدي استقبل طلبات
+الرابط بالبايو
+
+#دورلي #بيجات_عراقية #صفحات_عراقية #صفحات_موثقة #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #بيجات_عراقية #صفحات_عراقية #صفحات_موثقة #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-17" data-week="3" data-day="17">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>17</b></div>
+    <div class="dmeta"><div class="fmt">ميزة: الطلب حسب المحافظة</div><div class="concept">حدد محافظتك حتى العرض يجي على قد مكانك</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="17"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-17.png" alt="day-17" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-17.png" download="dawwerli-m2-day-17.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">انت بالبصرة والبيج ببغداد والتوصيل ياخذ ايام؟
+بطلبك حدد محافظتك
+حتى العروض تجي على قد مكانك
+وتكدر تشوف الغرض وتفحصه بسهولة قبل لا تدفع
+جربها بطلبك الجاي</pre><pre class="tags">#دورلي #البصرة #بغداد #الموصل #اربيل #تسوق_اونلاين #العراق #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="انت بالبصرة والبيج ببغداد والتوصيل ياخذ ايام؟
+بطلبك حدد محافظتك
+حتى العروض تجي على قد مكانك
+وتكدر تشوف الغرض وتفحصه بسهولة قبل لا تدفع
+جربها بطلبك الجاي
+
+#دورلي #البصرة #بغداد #الموصل #اربيل #تسوق_اونلاين #العراق #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #البصرة #بغداد #الموصل #اربيل #تسوق_اونلاين #العراق #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-18" data-week="3" data-day="18">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>18</b></div>
+    <div class="dmeta"><div class="fmt">ضحك (الكارتونة والام)</div><div class="concept">امي لمن تشوف كارتونة جديدة بالبيت</div><div class="time">🕘 ١٠:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="18"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-18.png" alt="day-18" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-18.png" download="dawwerli-m2-day-18.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">امي لمن تشوف كارتونة جديدة بالبيت 😂
+شنو هاي؟
+لا هاي من زمان
+سوي تاك لاخوك اللي يخبي الطلبات</pre><pre class="tags">#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="امي لمن تشوف كارتونة جديدة بالبيت 😂
+شنو هاي؟
+لا هاي من زمان
+سوي تاك لاخوك اللي يخبي الطلبات
+
+#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #ضحك_عراقي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-19" data-week="3" data-day="19">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>19</b></div>
+    <div class="dmeta"><div class="fmt">كاروسيل للبيجات (4 اشياء تخلي عرضك يبين)</div><div class="concept">نصايح عملية لصاحب البيج يرسل عرض احسن</div><div class="time">🕘 ١٢:٠٠ الظهر</div><div class="badges"><span class="badge">كاروسيل 5 سلايد</span></div></div>
+    <label class="done"><input type="checkbox" data-day="19"><span>تم النشر</span></label>
+  </header>
+  <div class="slides multi"><figure class="slide"><img src="assets/day-19-1.png" alt="day-19-1" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 1/5</span><a class="btn dl" href="assets/day-19-1.png" download="dawwerli-m2-day-19-1.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-19-2.png" alt="day-19-2" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 2/5</span><a class="btn dl" href="assets/day-19-2.png" download="dawwerli-m2-day-19-2.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-19-3.png" alt="day-19-3" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 3/5</span><a class="btn dl" href="assets/day-19-3.png" download="dawwerli-m2-day-19-3.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-19-4.png" alt="day-19-4" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 4/5</span><a class="btn dl" href="assets/day-19-4.png" download="dawwerli-m2-day-19-4.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-19-5.png" alt="day-19-5" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 5/5</span><a class="btn dl" href="assets/day-19-5.png" download="dawwerli-m2-day-19-5.png">⬇ تنزيل</a></div></figure></div>
+  <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="row-end"><button class="btn gold dlall">⬇ تنزيل كل الصور (5)</button></div>
+  <div class="capbox"><pre class="cap">صاحب بيج؟ هاي 4 اشياء تخلي عرضك يبين
+رد بسرعة، الطلب الجديد يبرد اذا تاخرت
+حط صور حقيقية للغرض مو صور من النت
+اكتب السعر النهائي والحالة بصراحة من اول عرض
+والتزم بالموعد، التقييم يجي من الصفقات اللي كملت
+احفظه ودزه لصاحب بيج تعرفه</pre><pre class="tags">#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #نصايح #العراق #بغداد</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="صاحب بيج؟ هاي 4 اشياء تخلي عرضك يبين
+رد بسرعة، الطلب الجديد يبرد اذا تاخرت
+حط صور حقيقية للغرض مو صور من النت
+اكتب السعر النهائي والحالة بصراحة من اول عرض
+والتزم بالموعد، التقييم يجي من الصفقات اللي كملت
+احفظه ودزه لصاحب بيج تعرفه
+
+#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #نصايح #العراق #بغداد">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #بيجات_عراقية #صفحات_عراقية #بيع_اونلاين #اصحاب_الصفحات #نصايح #العراق #بغداد">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-20" data-week="3" data-day="20">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>20</b></div>
+    <div class="dmeta"><div class="fmt">فئة: عطور ومكياج</div><div class="concept">عطرك المفضل خلص؟ اكتب اسمه بالضبط</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="20"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-20.png" alt="day-20" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-20.png" download="dawwerli-m2-day-20.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">عطرك المفضل خلص؟ لو الكريم اللي متعود عليه ماكو بالسوق؟
+اكتب اسمه بالضبط بدورلي
+وحدد المحافظة واعلى سعر عندك
+وخلي البيجات تدورلك عليه
+وقبل لا تدفع شوف الكارتونة والتاريخ زين</pre><pre class="tags">#دورلي #عطور #مكياج #عناية_بالبشرة #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="عطرك المفضل خلص؟ لو الكريم اللي متعود عليه ماكو بالسوق؟
+اكتب اسمه بالضبط بدورلي
+وحدد المحافظة واعلى سعر عندك
+وخلي البيجات تدورلك عليه
+وقبل لا تدفع شوف الكارتونة والتاريخ زين
+
+#دورلي #عطور #مكياج #عناية_بالبشرة #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #عطور #مكياج #عناية_بالبشرة #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-21" data-week="3" data-day="21">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>21</b></div>
+    <div class="dmeta"><div class="fmt">تفاعل (شكد تصبر)</div><div class="concept">مقياس الصبر على رد البيج</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="21"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-21.png" alt="day-21" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-21.png" download="dawwerli-m2-day-21.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">بصراحة شكد تصبر على رد البيج؟
+1 ساعة
+2 يوم
+3 اسبوع
+4 لهسه دا انتظر 😂
+اكتب الرقم بالتعليقات</pre><pre class="tags">#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="بصراحة شكد تصبر على رد البيج؟
+1 ساعة
+2 يوم
+3 اسبوع
+4 لهسه دا انتظر 😂
+اكتب الرقم بالتعليقات
+
+#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article><h2 class="weekh" data-week="4">الاسبوع 4 — التفاعل وجلب البيجات</h2>
+<article class="card day" id="day-22" data-week="4" data-day="22">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>22</b></div>
+    <div class="dmeta"><div class="fmt">فئة: اطفال</div><div class="concept">الجهال كبروا والقياس تغير: العمر والقياس والموسم بالطلب</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="22"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-22.png" alt="day-22" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-22.png" download="dawwerli-m2-day-22.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">الجهال يكبرون بسرعة والقياس كل شوية يتغير
+اكتب العمر والقياس والموسم بالطلب
+ملابس، احذية، العاب، اي شي
+والعروض تجيك من بيجات موثقة وانت قارن</pre><pre class="tags">#دورلي #ملابس_اطفال #العاب_اطفال #اطفال #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="الجهال يكبرون بسرعة والقياس كل شوية يتغير
+اكتب العمر والقياس والموسم بالطلب
+ملابس، احذية، العاب، اي شي
+والعروض تجيك من بيجات موثقة وانت قارن
+
+#دورلي #ملابس_اطفال #العاب_اطفال #اطفال #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #ملابس_اطفال #العاب_اطفال #اطفال #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-23" data-week="4" data-day="23">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>23</b></div>
+    <div class="dmeta"><div class="fmt">ثقة: البلاغ من تفاصيل الطلب</div><div class="concept">صار شي مو مضبوط؟ بلّغ من تفاصيل الطلب</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="23"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-23.png" alt="day-23" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-23.png" download="dawwerli-m2-day-23.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">صار شي مو مضبوط ويا طلبك؟
+لا تسكت
+من تفاصيل الطلب تكدر تبلغ على البيج
+حتى دورلي يبقى نظيف للكل</pre><pre class="tags">#دورلي #تسوق_امن #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** خيار البلاغ بقائمة تفاصيل الطلب من تحديث المتجر. تأكد انه نازل قبل لا تنشر.</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="صار شي مو مضبوط ويا طلبك؟
+لا تسكت
+من تفاصيل الطلب تكدر تبلغ على البيج
+حتى دورلي يبقى نظيف للكل
+
+#دورلي #تسوق_امن #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** خيار البلاغ بقائمة تفاصيل الطلب من تحديث المتجر. تأكد انه نازل قبل لا تنشر.">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_امن #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية
+**⚠️ تأكد قبل النشر:** خيار البلاغ بقائمة تفاصيل الطلب من تحديث المتجر. تأكد انه نازل قبل لا تنشر.">نسخ الهاشتاگات</button></div>
+  <div class="note"><b>تأكد قبل النشر:</b> خيار البلاغ بقائمة تفاصيل الطلب من تحديث المتجر. تأكد انه نازل قبل لا تنشر.</div>
+</article>
+<article class="card day" id="day-24" data-week="4" data-day="24">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>24</b></div>
+    <div class="dmeta"><div class="fmt">كاروسيل فئة: قطع غيار السيارات</div><div class="concept">نوع السيارة والموديل والسنة واسم القطعة بطلب واحد</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"><span class="badge">كاروسيل 3 سلايد</span></div></div>
+    <label class="done"><input type="checkbox" data-day="24"><span>تم النشر</span></label>
+  </header>
+  <div class="slides multi"><figure class="slide"><img src="assets/day-24-1.png" alt="day-24-1" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 1/3</span><a class="btn dl" href="assets/day-24-1.png" download="dawwerli-m2-day-24-1.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-24-2.png" alt="day-24-2" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 2/3</span><a class="btn dl" href="assets/day-24-2.png" download="dawwerli-m2-day-24-2.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-24-3.png" alt="day-24-3" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 3/3</span><a class="btn dl" href="assets/day-24-3.png" download="dawwerli-m2-day-24-3.png">⬇ تنزيل</a></div></figure></div>
+  <div class="dots"><i></i><i></i><i></i></div>
+  <div class="row-end"><button class="btn gold dlall">⬇ تنزيل كل الصور (3)</button></div>
+  <div class="capbox"><pre class="cap">سيارتك تريد قطعة وانت دايخ بين المحلات؟
+اكتب نوع السيارة والموديل والسنة واسم القطعة
+وحدد جديد لو مستعمل ومحافظتك
+والبيجات ترسلك عروضها
+اسحب وشوف شلون</pre><pre class="tags">#دورلي #قطع_غيار #سيارات #سيارات_العراق #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="سيارتك تريد قطعة وانت دايخ بين المحلات؟
+اكتب نوع السيارة والموديل والسنة واسم القطعة
+وحدد جديد لو مستعمل ومحافظتك
+والبيجات ترسلك عروضها
+اسحب وشوف شلون
+
+#دورلي #قطع_غيار #سيارات #سيارات_العراق #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #قطع_غيار #سيارات #سيارات_العراق #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-25" data-week="4" data-day="25">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>25</b></div>
+    <div class="dmeta"><div class="fmt">للبيجات (بيجك صغيرة؟)</div><div class="concept">اللي يفرق بدوّرلي هو عرضك وسعرك والتزامك مو عدد المتابعين</div><div class="time">🕘 ١١:٠٠ الصبح</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="25"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-25.png" alt="day-25" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-25.png" download="dawwerli-m2-day-25.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">بيجك صغيرة ومتابعينك قليلين؟ مو مشكلة
+بدورلي اللي يفرق هو عرضك وسعرك والتزامك
+مو عدد المتابعين
+يعني الشغل الزين هو اللي يبين
+وثق بيجك وابدي، الرابط بالبايو</pre><pre class="tags">#دورلي #بيجات_عراقية #صفحات_عراقية #مشروع_صغير #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="بيجك صغيرة ومتابعينك قليلين؟ مو مشكلة
+بدورلي اللي يفرق هو عرضك وسعرك والتزامك
+مو عدد المتابعين
+يعني الشغل الزين هو اللي يبين
+وثق بيجك وابدي، الرابط بالبايو
+
+#دورلي #بيجات_عراقية #صفحات_عراقية #مشروع_صغير #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #بيجات_عراقية #صفحات_عراقية #مشروع_صغير #بيع_اونلاين #اصحاب_الصفحات #العراق #بغداد">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-26" data-week="4" data-day="26">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>26</b></div>
+    <div class="dmeta"><div class="fmt">كاروسيل ثقة (3 افكار غلط)</div><div class="concept">افكار غلط عن الشراء اونلاين والصح</div><div class="time">🕘 ٨:٠٠ بالليل</div><div class="badges"><span class="badge">كاروسيل 4 سلايد</span></div></div>
+    <label class="done"><input type="checkbox" data-day="26"><span>تم النشر</span></label>
+  </header>
+  <div class="slides multi"><figure class="slide"><img src="assets/day-26-1.png" alt="day-26-1" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 1/4</span><a class="btn dl" href="assets/day-26-1.png" download="dawwerli-m2-day-26-1.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-26-2.png" alt="day-26-2" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 2/4</span><a class="btn dl" href="assets/day-26-2.png" download="dawwerli-m2-day-26-2.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-26-3.png" alt="day-26-3" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 3/4</span><a class="btn dl" href="assets/day-26-3.png" download="dawwerli-m2-day-26-3.png">⬇ تنزيل</a></div></figure><figure class="slide"><img src="assets/day-26-4.png" alt="day-26-4" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><span class="snum">سلايد 4/4</span><a class="btn dl" href="assets/day-26-4.png" download="dawwerli-m2-day-26-4.png">⬇ تنزيل</a></div></figure></div>
+  <div class="dots"><i></i><i></i><i></i><i></i></div>
+  <div class="row-end"><button class="btn gold dlall">⬇ تنزيل كل الصور (4)</button></div>
+  <div class="capbox"><pre class="cap">3 افكار غلط عن الشراء اونلاين
+كله نصب؟ مو شرط، افحص الغرض قبل لا تدفع
+لازم تفاوض حتى تاخذ سعر زين؟ لا، العروض تجيك بسعر ثابت وانت قارن
+البيج الكبيرة هي الادق؟ مو شرط، شوف التوثيق والتقييم
+شنو اكو فكرة غلط ثانية سمعتها؟ 👇</pre><pre class="tags">#دورلي #تسوق_امن #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="3 افكار غلط عن الشراء اونلاين
+كله نصب؟ مو شرط، افحص الغرض قبل لا تدفع
+لازم تفاوض حتى تاخذ سعر زين؟ لا، العروض تجيك بسعر ثابت وانت قارن
+البيج الكبيرة هي الادق؟ مو شرط، شوف التوثيق والتقييم
+شنو اكو فكرة غلط ثانية سمعتها؟ 👇
+
+#دورلي #تسوق_امن #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_امن #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-27" data-week="4" data-day="27">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>27</b></div>
+    <div class="dmeta"><div class="fmt">ضحك (المندوب يم الباب)</div><div class="concept">المندوب يكلك انزل وانت بالبيجاما</div><div class="time">🕘 ١٠:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="27"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-27.png" alt="day-27" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-27.png" download="dawwerli-m2-day-27.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">المندوب: انا يم الباب انزل
+وانت بالبيجاما 😂
+كلنا صارت ويانا
+وبدورلي حتى لو نزلت بالبيجاما افحص الغرض قبل لا تدفع
+سوي تاك للي ينزل بالنعال</pre><pre class="tags">#دورلي #ضحك_عراقي #توصيل #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="المندوب: انا يم الباب انزل
+وانت بالبيجاما 😂
+كلنا صارت ويانا
+وبدورلي حتى لو نزلت بالبيجاما افحص الغرض قبل لا تدفع
+سوي تاك للي ينزل بالنعال
+
+#دورلي #ضحك_عراقي #توصيل #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #ضحك_عراقي #توصيل #تسوق_اونلاين #العراق #بغداد #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-28" data-week="4" data-day="28">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>28</b></div>
+    <div class="dmeta"><div class="fmt">تفاعل (سوي تاك)</div><div class="concept">تاك للصديق اللي يشتري كلشي يشوفه بالانستا</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="28"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-28.png" alt="day-28" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-28.png" download="dawwerli-m2-day-28.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">سوي تاك للصديق اللي يشتري كلشي يشوفه بالانستا 😅
+ودزله هالبوست
+بلكي يكتب طلبه مرة وحدة ويرتاح</pre><pre class="tags">#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="سوي تاك للصديق اللي يشتري كلشي يشوفه بالانستا 😅
+ودزله هالبوست
+بلكي يكتب طلبه مرة وحدة ويرتاح
+
+#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_اونلاين #العراق #بغداد #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-29" data-week="4" data-day="29">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>29</b></div>
+    <div class="dmeta"><div class="fmt">شلون يشتغل (بثلاث كلمات)</div><div class="concept">اكتب. قارن. افحص.</div><div class="time">🕘 ٨:٣٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="29"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-29.png" alt="day-29" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-29.png" download="dawwerli-m2-day-29.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">دورلي بثلاث كلمات
+اكتب. قارن. افحص.
+اكتب شتريد، قارن العروض اللي تجيك بسعر ثابت، وافحص الغرض قبل لا تدفع
+بس هيج
+الرابط بالبايو</pre><pre class="tags">#دورلي #تسوق_اونلاين #العراق #بغداد #البصرة #صفحات_عراقية #بيجات_عراقية</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="دورلي بثلاث كلمات
+اكتب. قارن. افحص.
+اكتب شتريد، قارن العروض اللي تجيك بسعر ثابت، وافحص الغرض قبل لا تدفع
+بس هيج
+الرابط بالبايو
+
+#دورلي #تسوق_اونلاين #العراق #بغداد #البصرة #صفحات_عراقية #بيجات_عراقية">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #تسوق_اونلاين #العراق #بغداد #البصرة #صفحات_عراقية #بيجات_عراقية">نسخ الهاشتاگات</button></div>
+  
+</article>
+<article class="card day" id="day-30" data-week="4" data-day="30">
+  <header class="dhead">
+    <div class="dnum"><span>يوم</span><b>30</b></div>
+    <div class="dmeta"><div class="fmt">تفاعل للبيجات (تاك لبيج تثق بيها)</div><div class="concept">سوي تاك لبيج تشتري منها وتريد تشوفها بدورلي</div><div class="time">🕘 ٩:٠٠ بالليل</div><div class="badges"></div></div>
+    <label class="done"><input type="checkbox" data-day="30"><span>تم النشر</span></label>
+  </header>
+  <div class="slides "><figure class="slide"><img src="assets/day-30.png" alt="day-30" loading="lazy" decoding="async" width="1080" height="1350"><div class="sbar"><a class="btn dl" href="assets/day-30.png" download="dawwerli-m2-day-30.png">⬇ تنزيل</a></div></figure></div>
+  
+  <div class="row-end"></div>
+  <div class="capbox"><pre class="cap">اكو بيج تشتري منها دايما وتثق بيها؟
+سوي الها تاك بالتعليقات
+خليهم يعرفون انك تريد تشوفهم بدورلي
+واذا انت صاحب بيج، وثق بيجك من التطبيق والرابط بالبايو</pre><pre class="tags">#دورلي #بيجات_عراقية #صفحات_عراقية #اصحاب_الصفحات #تسوق_اونلاين #العراق #بغداد</pre></div>
+  <div class="row-end"><button class="btn copy" data-label="نسخ الكابشن" data-text="اكو بيج تشتري منها دايما وتثق بيها؟
+سوي الها تاك بالتعليقات
+خليهم يعرفون انك تريد تشوفهم بدورلي
+واذا انت صاحب بيج، وثق بيجك من التطبيق والرابط بالبايو
+
+#دورلي #بيجات_عراقية #صفحات_عراقية #اصحاب_الصفحات #تسوق_اونلاين #العراق #بغداد">نسخ الكابشن</button><button class="btn copy" data-label="نسخ الهاشتاگات" data-text="#دورلي #بيجات_عراقية #صفحات_عراقية #اصحاب_الصفحات #تسوق_اونلاين #العراق #بغداد">نسخ الهاشتاگات</button></div>
+  
+</article>
+<p class="muted" style="text-align:center;margin-top:30px">كلها بتوقيت بغداد. منشورات الزبائن من ٨ لـ ١٠ بالليل، ومنشورات البيجات الصبح او الظهر.</p>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+const toast=document.getElementById('toast');let tt;
+function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),1800);}
+function fallbackCopy(t){const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');
+ ta.style.cssText='position:fixed;top:0;left:0;opacity:0;font-size:16px';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,t.length);
+ let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();return ok;}
+async function copyText(t){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(t);return true;}catch(e){}}return fallbackCopy(t);}
+function flash(b,ok){const l=b.dataset.label;b.classList.add('ok');b.textContent=ok?'انسخ ✓':'ما انسخ، حدد النص بيدك';setTimeout(()=>{b.classList.remove('ok');b.textContent=l;},1600);}
+function dl(href,name){const a=document.createElement('a');a.href=href;a.download=name;a.rel='noopener';document.body.appendChild(a);a.click();a.remove();}
+document.addEventListener('click',async e=>{
+  const a=e.target.closest('a.dl');if(a){say('جاي ينزل: '+a.getAttribute('download'));return;}
+  const b=e.target.closest('button');if(!b)return;
+  if(b.classList.contains('copy')){window.__lastCopy=b.dataset.text;flash(b,await copyText(b.dataset.text));return;}
+  if(b.classList.contains('dlall')){const ls=[...b.closest('.day').querySelectorAll('a.dl')];
+    ls.forEach((x,i)=>setTimeout(()=>dl(x.href,x.getAttribute('download')),i*400));say('جاي ينزل '+ls.length+' صور');return;}
+  if(b.classList.contains('chip')){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));applyFilter(b.dataset.week);}
+});
+const KEY='dawwerli-m2-posted-v1';let posted={};try{posted=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+const days=[...document.querySelectorAll('.day')];let cur='all';
+function refresh(){let n=0;days.forEach(d=>{const p=!!posted[d.dataset.day];d.classList.toggle('posted',p);d.querySelector('.done input').checked=p;if(p)n++;});
+ document.getElementById('progress').textContent='انتشر '+n+' من '+days.length;}
+document.addEventListener('change',e=>{const c=e.target;if(!c.matches('.done input'))return;
+ if(c.checked)posted[c.dataset.day]=1;else delete posted[c.dataset.day];try{localStorage.setItem(KEY,JSON.stringify(posted));}catch(e){}
+ refresh();if(cur==='todo')applyFilter('todo');});
+function applyFilter(w){cur=w;days.forEach(d=>d.classList.toggle('hidden',!(w==='all'||(w==='todo'?!posted[d.dataset.day]:d.dataset.week===w))));
+ document.querySelectorAll('.weekh').forEach(h=>h.classList.toggle('hidden',!days.some(d=>d.dataset.week===h.dataset.week&&!d.classList.contains('hidden'))));}
+refresh();
+document.querySelectorAll('.slides.multi').forEach(s=>{const n=s.children.length;const dots=s.parentElement.querySelector('.dots');if(!dots)return;const ds=[...dots.children];
+ const upd=()=>{const w=s.children[0].getBoundingClientRect().width+12;const i=Math.min(n-1,Math.round(Math.abs(s.scrollLeft)/w));ds.forEach((d,k)=>d.classList.toggle('on',k===i));};
+ s.addEventListener('scroll',upd,{passive:true});upd();});
+})();
+</script>
+</body></html>
